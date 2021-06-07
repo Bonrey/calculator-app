@@ -12,8 +12,10 @@ const theme1 = {
     'digit/op-shadow': 'hsl(28, 16%, 65%)'
   },
   text: {
-    'dark': 'hsl(221, 14%, 31%)',
-    'light': 'hsl(0, 0%, 100%)'
+    'logo/screen': 'hsl(0, 0%, 100%)',
+    'digit/op': 'hsl(221, 14%, 31%)',
+    'del/reset': 'hsl(0, 0%, 100%)',
+    'equals': 'hsl(0, 0%, 100%)'
   }
 };
 
@@ -31,8 +33,10 @@ const theme2 = {
     'digit/op-shadow': 'hsl(35, 11%, 61%)'
   },
   text: {
-    'dark': 'hsl(60, 10%, 19%)',
-    'light': 'hsl(0, 0%, 100%)'
+    'logo/screen': 'hsl(60, 10%, 19%)',
+    'digit/op': 'hsl(60, 10%, 19%)',
+    'del/reset': 'hsl(0, 0%, 100%)',
+    'equals': 'hsl(0, 0%, 100%)'
   }
 }
 
@@ -50,9 +54,10 @@ const theme3 = {
     'digit/op-shadow': 'hsl(290, 70%, 36%)'
   },
   text: {
-    'dark': 'hsl(198, 20%, 13%)',
-    'light': 'hsl(0, 0, 100%)',
-    'yellow': 'hsl(52, 100%, 62%)'
+    'logo/screen': 'hsl(52, 100%, 62%)',
+    'digit/op': 'hsl(52, 100%, 62%)',
+    'del/reset': 'hsl(0, 0%, 100%)',
+    'equals': 'hsl(198, 20%, 13%)'
   }
 }
 

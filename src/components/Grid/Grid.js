@@ -12,19 +12,23 @@ const buttons = [
 
 const Grid = ({ onClick, theme }) => {
   return (
-    <Container>
-      {buttons.slice(0, 3).map(val => <BtnRegular key={val} onClick={onClick}>{val}</BtnRegular>)}
-      <BtnDelete onClick={onClick}>Del</BtnDelete>
-      {buttons.slice(3).map(val => <BtnRegular key={val} onClick={onClick}>{val}</BtnRegular>)}
-      <BtnReset onClick={onClick}>Reset</BtnReset>
-      <BtnEquals onClick={onClick}>=</BtnEquals>
+    <Container theme={theme}>
+      {buttons.slice(0, 3).map(val => (
+        <BtnRegular key={val} onClick={onClick} theme={theme}>{val}</BtnRegular>
+      ))}
+      <BtnDelete onClick={onClick} theme={theme}>Del</BtnDelete>
+      {buttons.slice(3).map(val => (
+        <BtnRegular key={val} onClick={onClick} theme={theme}>{val}</BtnRegular>
+      ))}
+      <BtnReset onClick={onClick} theme={theme}>Reset</BtnReset>
+      <BtnEquals onClick={onClick} theme={theme}>=</BtnEquals>
     </Container>
   );
 };
 export default Grid;
 
 const Container = styled.div`
-  background-color: ${c.theme1['keypad-bg']};
+  background-color: ${({ theme }) => c[theme]['toggle/keypad-bg']};
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 0.375rem;

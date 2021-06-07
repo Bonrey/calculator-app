@@ -7,12 +7,12 @@ const ThemeSwitcher = ({ onChange, theme }) => {
     <Container>
       <Legend>Theme</Legend>
       <RadioGroup theme={theme}>
-        <Label htmlFor="theme1">1</Label>
-        <Radio id="theme1" value="1" onChange={onChange} defaultChecked />
-        <Label htmlFor="theme2">2</Label>
-        <Radio id="theme2" value="2" onChange={onChange} />
-        <Label htmlFor="theme3">3</Label>
-        <Radio id="theme3" value="3" onChange={onChange} />
+        <Label htmlFor="theme1" theme={theme}>1</Label>
+        <Radio id="theme1" value="1" onChange={onChange} theme={theme} defaultChecked />
+        <Label htmlFor="theme2" theme={theme}>2</Label>
+        <Radio id="theme2" value="2" onChange={onChange} theme={theme} />
+        <Label htmlFor="theme3" theme={theme}>3</Label>
+        <Radio id="theme3" value="3" onChange={onChange} theme={theme} />
       </RadioGroup>
     </Container>
   );
@@ -32,7 +32,7 @@ const Legend = styled.p`
 `;
 
 const RadioGroup = styled.div`
-  background-color: ${({theme}) => c[theme]['toggle-bg']};
+  background-color: ${({ theme }) => c[theme]['toggle/keypad-bg']};
   height: 0.8rem;
   box-sizing: border-box;
   padding: 0.1rem;
@@ -72,6 +72,6 @@ const Radio = styled.input.attrs(() => ({
   margin: 0 0.05rem;
 
   &:checked {
-    background-color: ${c.theme1['radio-bg']};
+    background-color: ${({ theme }) => c[theme]['radio-bg']};
   }
 `;

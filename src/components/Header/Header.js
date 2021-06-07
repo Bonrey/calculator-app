@@ -6,7 +6,7 @@ import ThemeSwitcher from './ThemeSwitcher';
 
 const Header = ({ onChange, theme }) => {
   return (
-    <Container>
+    <Container theme={theme}>
       <Logo />
       <ThemeSwitcher onChange={onChange} theme={theme} />
     </Container>
@@ -18,5 +18,5 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  color: ${c.theme1.text.light};
+  color: ${({ theme }) => c[theme].text['logo/screen']};
 `;
