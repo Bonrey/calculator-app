@@ -13,11 +13,15 @@ export const globalStyle = createGlobalStyle`
     font-weight: bold;
     scroll-behavior: smooth;
     height: 100%;
+
+    @media only screen and (max-width: 320px) {
+      font-size: 10vw;
+    }
   }
 
   body {
-    height: 100%;
-    background-color: ${c.theme1['main-bg']};
-    margin: 0.875rem;
+    min-height: 100%;
+    background-color: ${({ theme }) => c[theme]['main-bg']};
+    padding: 0.875rem;
   }
 `;

@@ -2,17 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import c from '../../styles/colors';
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({ onChange, theme }) => {
   return (
     <Container>
       <Legend>Theme</Legend>
-      <RadioGroup>
-        <Label for="theme1">1</Label>
-        <Radio id="theme1" value="1" defaultChecked />
-        <Label for="theme2">2</Label>
-        <Radio id="theme2" value="2" />
-        <Label for="theme3">3</Label>
-        <Radio id="theme3" value="3" />
+      <RadioGroup theme={theme}>
+        <Label htmlFor="theme1">1</Label>
+        <Radio id="theme1" value="1" onChange={onChange} defaultChecked />
+        <Label htmlFor="theme2">2</Label>
+        <Radio id="theme2" value="2" onChange={onChange} />
+        <Label htmlFor="theme3">3</Label>
+        <Radio id="theme3" value="3" onChange={onChange} />
       </RadioGroup>
     </Container>
   );
@@ -32,7 +32,7 @@ const Legend = styled.p`
 `;
 
 const RadioGroup = styled.div`
-  background-color: ${c.theme1['toggle-bg']};
+  background-color: ${({theme}) => c[theme]['toggle-bg']};
   height: 0.8rem;
   box-sizing: border-box;
   padding: 0.1rem;

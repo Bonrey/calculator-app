@@ -4,11 +4,11 @@ import c from '../../styles/colors';
 import Logo from './Logo';
 import ThemeSwitcher from './ThemeSwitcher';
 
-const Header = () => {
+const Header = ({ onChange, theme }) => {
   return (
     <Container>
       <Logo />
-      <ThemeSwitcher />
+      <ThemeSwitcher onChange={onChange} theme={theme} />
     </Container>
   );
 };
