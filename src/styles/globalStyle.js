@@ -8,6 +8,9 @@ export const globalStyle = createGlobalStyle`
   }
 
   html {
+    font-family: 'Spartan', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
     scroll-behavior: smooth;
     height: 100%;
   }
@@ -15,7 +18,6 @@ export const globalStyle = createGlobalStyle`
   body {
     height: 100%;
     background-color: ${c.theme1['main-bg']};
+    margin: 0.875rem;
   }
 `;
-
-
