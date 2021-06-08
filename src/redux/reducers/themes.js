@@ -1,10 +1,8 @@
 const themesReducer = (state = 'theme1', action) => {
-  switch (action.type) {
-    case '':
-      return;
-    default:
-      return state;
+  if (/^theme\d$/.test(action.type)) {
+    return action.type;
   }
+  return state;
 }
 
 export default themesReducer;

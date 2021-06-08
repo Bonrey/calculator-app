@@ -1,18 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import c from '../../styles/colors';
+import { useSelector, useDispatch } from 'react-redux';
+import { setTheme } from '../../redux/actions';
 
-const ThemeSwitcher = ({ onChange, theme }) => {
+const ThemeSwitcher = () => {
+  const theme = useSelector(state => state.theme);
+  const dispatch = useDispatch();
+
   return (
     <Container>
       <Legend>Theme</Legend>
       <RadioGroup theme={theme}>
         <Label htmlFor="theme1" theme={theme}>1</Label>
-        <Radio id="theme1" value="1" onChange={onChange} theme={theme} defaultChecked />
+        <Radio id="theme1" onChange={() => dispatch(setTheme(1))} theme={theme} defaultChecked />
         <Label htmlFor="theme2" theme={theme}>2</Label>
-        <Radio id="theme2" value="2" onChange={onChange} theme={theme} />
+        <Radio id="theme2" onChange={() => dispatch(setTheme(2))} theme={theme} />
         <Label htmlFor="theme3" theme={theme}>3</Label>
-        <Radio id="theme3" value="3" onChange={onChange} theme={theme} />
+        <Radio id="theme3" onChange={() => dispatch(setTheme(3))} theme={theme} />
       </RadioGroup>
     </Container>
   );

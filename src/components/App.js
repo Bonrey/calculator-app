@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { globalStyle as GlobalStyle } from '../styles/globalStyle';
 import Header from './Header/Header';
 import Screen from './Screen/Screen';
 import Grid from './Grid/Grid';
+import { setTheme } from '../redux/actions';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,22 +49,23 @@ class App extends React.Component {
     }
   }
 
-  handleChange = e => this.setState({ theme: 'theme' + e.target.value });
-
   render() {
     return (
       <>
-        <GlobalStyle theme={this.state.theme} />
+        <GlobalStyle theme={this.props.theme} />
         <Wrapper>
-          <Header onChange={this.handleChange} theme={this.state.theme} />
-          <Screen expr={this.state.expression} theme={this.state.theme} />
-          <Grid onClick={this.handleClick} theme={this.state.theme} />
+          <Header theme={this.props.theme} />
+          <Screen expr={this.state.expression} theme={this.props.theme} />
+          <Grid onClick={this.handleClick} theme={this.props.theme} />
         </Wrapper>
       </>
     );
   }
 }
-export default App;
+
+const mapStateToProps = state => ({ theme: state.theme });
+const mapDispatchToProps = dispatch => ({ setTheme: themeId => dispatch(setTheme(themeId)) });
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 const Wrapper = styled.div`
   max-width: 20rem;
